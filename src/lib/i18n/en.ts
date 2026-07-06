@@ -6,6 +6,7 @@ export interface Dict {
     badge: string;
     title: string;
     description: string;
+    contactButton: string;
   };
   form: {
     title: string;
@@ -14,8 +15,6 @@ export interface Dict {
     namePlaceholder: string;
     phoneLabel: string;
     phonePlaceholder: string;
-    emailLabel: string;
-    emailPlaceholder: string;
     noteLabel: string;
     notePlaceholder: string;
     submit: string;
@@ -24,7 +23,6 @@ export interface Dict {
   footer: {
     description: string;
     hotline: string;
-    email: string;
     copyright: string;
   };
 }
@@ -34,28 +32,26 @@ export const en: Dict = {
     logo: 'Xanh SM',
   },
   hero: {
-    badge: 'Register for Xanh SM app consultation',
-    title: 'Leave your information for a quick Xanh SM app registration consultation.',
-    description: 'Fill in your name, phone, email and notes if needed. We\'ll contact you to support your registration and answer any questions.',
+    badge: 'Recruiting Platform & Partner Drivers',
+    title: 'Partner Tỵ Mùi - Green SM Partner - Recruiting Platform and Partner Drivers',
+    description: 'Register to become our partner driver. We are looking for Platform drivers and Partner drivers. Leave your information and we will contact you.',
+    contactButton: 'Contact now · 039 966 8966',
   },
   form: {
-    title: 'Register for consultation',
-    description: 'Please leave your information, we will contact you soon.',
+    title: 'Register to apply as a driver',
+    description: 'Leave your name and phone number, we will contact you soon.',
     nameLabel: 'Full name',
     namePlaceholder: 'Nguyen Van A',
     phoneLabel: 'Phone number',
     phonePlaceholder: '0912345678',
-    emailLabel: 'Email',
-    emailPlaceholder: 'you@example.com',
     noteLabel: 'Note',
     notePlaceholder: 'Enter any additional information if needed.',
     submit: 'Send information',
     submitting: 'Sending...',
   },
   footer: {
-    description: 'Xanh SM - Leading ride-hailing technology platform in Vietnam.',
-    hotline: 'Hotline: 1900 XXXX',
-    email: 'Email: contact@xanhsm.vn',
-    copyright: '© 2026 Xanh SM. All rights reserved.',
+    description: 'Partner Tỵ Mùi - Green SM Partner - Recruiting Platform drivers and Partner drivers.',
+    hotline: 'Hotline: 039 966 8966',
+    copyright: '© 2026 Partner Tỵ Mùi - Đối Tác Green SM.',
   },
 };

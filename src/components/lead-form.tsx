@@ -15,8 +15,6 @@ export type LeadFormTranslations = {
   namePlaceholder: string;
   phoneLabel: string;
   phonePlaceholder: string;
-  emailLabel: string;
-  emailPlaceholder: string;
   noteLabel: string;
   notePlaceholder: string;
   submit: string;
@@ -26,7 +24,6 @@ export type LeadFormTranslations = {
 type FormValues = {
   name: string;
   phone: string;
-  email: string;
   note: string;
 };
 
@@ -35,7 +32,6 @@ type FormErrors = Partial<Record<keyof FormValues, string>>;
 const initialValues: FormValues = {
   name: '',
   phone: '',
-  email: '',
   note: '',
 };
 
@@ -121,19 +117,6 @@ export function LeadForm({ translations }: { translations: LeadFormTranslations 
             placeholder={translations.phonePlaceholder}
           />
           {errors.phone ? <p className="text-sm text-rose-200">{errors.phone}</p> : null}
-        </div>
-
-        <div className="space-y-2">
-          <label className="text-sm text-white/80" htmlFor="email">{translations.emailLabel}</label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            value={values.email}
-            onChange={(event) => updateField('email', event.target.value)}
-            placeholder={translations.emailPlaceholder}
-          />
-          {errors.email ? <p className="text-sm text-rose-200">{errors.email}</p> : null}
         </div>
 
         <div className="space-y-2">

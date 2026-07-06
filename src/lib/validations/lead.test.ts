@@ -21,7 +21,6 @@ describe('leadSchema', () => {
     const result = leadSchema.safeParse({
       name: 'Nguyen Van A',
       phone: '+84912345678',
-      email: 'a@example.com',
     });
 
     expect(result.success).toBe(true);
@@ -31,7 +30,6 @@ describe('leadSchema', () => {
     const result = leadSchema.safeParse({
       name: '   ',
       phone: '0912345678',
-      email: 'a@example.com',
     });
 
     expect(result.success).toBe(false);
@@ -41,17 +39,6 @@ describe('leadSchema', () => {
     const result = leadSchema.safeParse({
       name: 'Nguyen Van A',
       phone: '12345',
-      email: 'a@example.com',
-    });
-
-    expect(result.success).toBe(false);
-  });
-
-  it('rejects invalid email', () => {
-    const result = leadSchema.safeParse({
-      name: 'Nguyen Van A',
-      phone: '0912345678',
-      email: 'invalid-email',
     });
 
     expect(result.success).toBe(false);
@@ -61,7 +48,6 @@ describe('leadSchema', () => {
     const result = leadSchema.safeParse({
       name: 'Nguyen Van A',
       phone: '0912345678',
-      email: 'a@example.com',
       note: '',
     });
 
@@ -72,7 +58,6 @@ describe('leadSchema', () => {
     const result = leadSchema.safeParse({
       name: 'Nguyen Van A',
       phone: '0912345678',
-      email: 'a@example.com',
     });
 
     expect(result.success).toBe(true);
@@ -82,7 +67,6 @@ describe('leadSchema', () => {
     const result = leadSchema.safeParse({
       name: 'Nguyen Van A',
       phone: '0912345678',
-      email: 'a@example.com',
       note: 'a'.repeat(3001),
     });
 

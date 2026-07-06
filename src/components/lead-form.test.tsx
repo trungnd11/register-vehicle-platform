@@ -5,14 +5,12 @@ import { LeadForm } from './lead-form';
 import type { LeadFormTranslations } from './lead-form';
 
 const mockTranslations: LeadFormTranslations = {
-  title: 'Đăng ký nhận tư vấn',
-  description: 'Vui lòng để lại thông tin, chúng tôi sẽ liên hệ với bạn sớm.',
+  title: 'Đăng ký ứng tuyển tài xế',
+  description: 'Để lại họ tên và số điện thoại, chúng tôi sẽ liên hệ với bạn sớm nhất.',
   nameLabel: 'Họ và tên',
   namePlaceholder: 'Nguyễn Văn A',
   phoneLabel: 'Số điện thoại',
   phonePlaceholder: '0912345678',
-  emailLabel: 'Email',
-  emailPlaceholder: 'ban@example.com',
   noteLabel: 'Ghi chú',
   notePlaceholder: 'Nhập ghi chú nếu bạn muốn bổ sung thêm thông tin.',
   submit: 'Gửi thông tin',
@@ -27,7 +25,6 @@ describe('LeadForm', () => {
 
     expect(html).toContain('Họ và tên');
     expect(html).toContain('Số điện thoại');
-    expect(html).toContain('Email');
     expect(html).toContain('Ghi chú');
     expect(html).toContain('Gửi thông tin');
   });

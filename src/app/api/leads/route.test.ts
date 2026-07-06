@@ -19,7 +19,6 @@ describe('POST /api/leads', () => {
       body: JSON.stringify({
         name: 'Nguyen Van A',
         phone: '0912345678',
-        email: 'a@example.com',
       }),
     });
 
@@ -52,7 +51,6 @@ describe('POST /api/leads', () => {
       body: JSON.stringify({
         name: 'Nguyen Van A',
         phone: '+84912345678',
-        email: 'a@example.com',
         note: 'Khách muốn được gọi lại buổi chiều.',
       }),
     });
@@ -66,7 +64,6 @@ describe('POST /api/leads', () => {
     const forwardedBody = JSON.parse(String(requestInit.body)) as {
       name: string;
       phone: string;
-      email: string;
       note?: string;
       createdAt: string;
     };
@@ -75,7 +72,6 @@ describe('POST /api/leads', () => {
     expect(data).toEqual({ success: true, message: 'Gửi thông tin thành công.' });
     expect(forwardedBody.name).toBe('Nguyen Van A');
     expect(forwardedBody.phone).toBe('0912345678');
-    expect(forwardedBody.email).toBe('a@example.com');
     expect(forwardedBody.note).toBe('Khách muốn được gọi lại buổi chiều.');
     expect(forwardedBody.createdAt).toMatch(/^\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}:\d{2}$/);
   });

@@ -23,7 +23,6 @@ export const leadSchema = z.object({
     .trim()
     .transform(normalizeVietnamPhone)
     .refine((value) => vietnamPhonePattern.test(value), 'Số điện thoại không hợp lệ.'),
-  email: z.string().trim().min(1, 'Vui lòng nhập email.').email('Email không hợp lệ.'),
   note: z.string().trim().max(3000, 'Ghi chú không được vượt quá 3000 ký tự.').optional(),
 });
 

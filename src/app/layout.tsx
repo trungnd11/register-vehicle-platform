@@ -9,8 +9,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Lead Form Landing',
-  description: 'Landing page thu lead với form submit qua Google Apps Script Web App.',
+  title: 'Partner Tỵ Mùi - Đối Tác Green SM | Tuyển tài xế Platform & Partner',
+  description:
+    'Partner Tỵ Mùi - Đối Tác Green SM chuyên tuyển tài xế Platform và tài xế Partner tại Việt Nam. Đăng ký ngay để trở thành tài xế đối tác.',
+  icons: [{ rel: 'icon', url: '/favicon.png' }],
+  openGraph: {
+    title: 'Partner Tỵ Mùi - Đối Tác Green SM | Tuyển tài xế Platform & Partner',
+    description:
+      'Partner Tỵ Mùi - Đối Tác Green SM chuyên tuyển tài xế Platform và tài xế Partner. Đăng ký ngay!',
+    type: 'website',
+  },
 };
 
 export default async function RootLayout({
@@ -26,7 +34,7 @@ export default async function RootLayout({
       lang={locale}
       className={`${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>{children}</body>
+      <body className="min-h-full flex flex-col bg-slate-950" suppressHydrationWarning>{children}</body>
     </html>
   );
 }

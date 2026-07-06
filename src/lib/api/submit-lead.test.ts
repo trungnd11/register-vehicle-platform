@@ -19,7 +19,6 @@ describe('submitLead', () => {
       submitLead({
         name: 'Nguyen Van A',
         phone: '0912345678',
-        email: 'a@example.com',
         note: 'Khách muốn được gọi lại buổi chiều.',
       }),
     ).resolves.toEqual({ success: true, message: 'Gửi thông tin thành công.' });
@@ -30,7 +29,6 @@ describe('submitLead', () => {
         body: JSON.stringify({
           name: 'Nguyen Van A',
           phone: '0912345678',
-          email: 'a@example.com',
           note: 'Khách muốn được gọi lại buổi chiều.',
         }),
       }),
@@ -50,7 +48,6 @@ describe('submitLead', () => {
       submitLead({
         name: 'Nguyen Van A',
         phone: '0912345678',
-        email: 'a@example.com',
       }),
     ).rejects.toThrow('Không thể gửi dữ liệu lúc này. Vui lòng thử lại sau.');
   });
