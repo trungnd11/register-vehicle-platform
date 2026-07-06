@@ -1,9 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { clsx } from 'clsx';
 
 import { submitLead } from '../lib/api/submit-lead';
 import { leadSchema } from '../lib/validations/lead';
+import { Input } from '../shared/ui/input';
+import { Textarea } from '../shared/ui/textarea';
 
 type FormValues = {
   name: string;
@@ -74,7 +77,7 @@ export function LeadForm() {
   }
 
   return (
-    <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.45)] backdrop-blur-2xl sm:p-8">
+    <div className="rounded-4xl border border-white/15 bg-white/10 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.45)] backdrop-blur-2xl sm:p-8">
       <div className="mb-6 space-y-2">
         <h2 className="text-2xl font-semibold text-white">Đăng ký nhận tư vấn</h2>
         <p className="text-sm leading-6 text-white/70">Vui lòng để lại thông tin, chúng tôi sẽ liên hệ với bạn sớm.</p>
@@ -83,12 +86,11 @@ export function LeadForm() {
       <form className="space-y-4" onSubmit={handleSubmit} noValidate>
         <div className="space-y-2">
           <label className="text-sm text-white/80" htmlFor="name">Họ và tên</label>
-          <input
+          <Input
             id="name"
             name="name"
             value={values.name}
             onChange={(event) => updateField('name', event.target.value)}
-            className="w-full rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-cyan-300/40 focus:bg-white/14"
             placeholder="Nguyễn Văn A"
           />
           {errors.name ? <p className="text-sm text-rose-200">{errors.name}</p> : null}
@@ -96,12 +98,11 @@ export function LeadForm() {
 
         <div className="space-y-2">
           <label className="text-sm text-white/80" htmlFor="phone">Số điện thoại</label>
-          <input
+          <Input
             id="phone"
             name="phone"
             value={values.phone}
             onChange={(event) => updateField('phone', event.target.value)}
-            className="w-full rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-cyan-300/40 focus:bg-white/14"
             placeholder="0912345678"
           />
           {errors.phone ? <p className="text-sm text-rose-200">{errors.phone}</p> : null}
@@ -109,13 +110,12 @@ export function LeadForm() {
 
         <div className="space-y-2">
           <label className="text-sm text-white/80" htmlFor="email">Email</label>
-          <input
+          <Input
             id="email"
             name="email"
             type="email"
             value={values.email}
             onChange={(event) => updateField('email', event.target.value)}
-            className="w-full rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-cyan-300/40 focus:bg-white/14"
             placeholder="ban@example.com"
           />
           {errors.email ? <p className="text-sm text-rose-200">{errors.email}</p> : null}
@@ -123,13 +123,12 @@ export function LeadForm() {
 
         <div className="space-y-2">
           <label className="text-sm text-white/80" htmlFor="note">Ghi chú</label>
-          <textarea
+          <Textarea
             id="note"
             name="note"
             rows={5}
             value={values.note}
             onChange={(event) => updateField('note', event.target.value)}
-            className="w-full resize-y rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-cyan-300/40 focus:bg-white/14"
             placeholder="Nhập ghi chú nếu bạn muốn bổ sung thêm thông tin."
           />
           {errors.note ? <p className="text-sm text-rose-200">{errors.note}</p> : null}
@@ -137,7 +136,12 @@ export function LeadForm() {
 
         {status.type !== 'idle' ? (
           <div
-            className={`rounded-2xl border px-4 py-3 text-sm ${status.type === 'success' ? 'border-emerald-300/30 bg-emerald-300/10 text-emerald-100' : 'border-rose-300/30 bg-rose-300/10 text-rose-100'}`}
+            className={clsx(
+              'rounded-2xl border px-4 py-3 text-sm',
+              status.type === 'success'
+                ? 'border-emerald-300/30 bg-emerald-300/10 text-emerald-100'
+                : 'border-rose-300/30 bg-rose-300/10 text-rose-100',
+            )}
             role="status"
           >
             {status.message}
