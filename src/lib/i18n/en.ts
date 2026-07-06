@@ -21,6 +21,12 @@ export interface Dict {
     submit: string;
     submitting: string;
   };
+  footer: {
+    description: string;
+    hotline: string;
+    email: string;
+    copyright: string;
+  };
 }
 
 export const en: Dict = {
@@ -45,5 +51,11 @@ export const en: Dict = {
     notePlaceholder: 'Enter any additional information if needed.',
     submit: 'Send information',
     submitting: 'Sending...',
+  },
+  footer: {
+    description: 'Xanh SM - Leading ride-hailing technology platform in Vietnam.',
+    hotline: 'Hotline: 1900 XXXX',
+    email: 'Email: contact@xanhsm.vn',
+    copyright: '© 2026 Xanh SM. All rights reserved.',
   },
 };

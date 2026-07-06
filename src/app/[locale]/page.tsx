@@ -15,7 +15,7 @@ export default async function HomePage({
       <div className="pointer-events-none absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-300/15 blur-3xl" />
       <div className="pointer-events-none absolute bottom-10 right-10 h-64 w-64 rounded-full bg-fuchsia-300/10 blur-3xl" />
 
-      <section className="relative mx-auto flex min-h-screen w-full max-w-6xl items-center px-4 py-12 sm:px-6 lg:px-8">
+      <section className="relative mx-auto flex min-h-screen w-full max-w-6xl items-center px-4 py-12 pt-20 sm:px-6 lg:px-8">
         <div className="grid w-full gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="space-y-6">
             <span className="inline-flex rounded-full border border-white/15 bg-white/8 px-4 py-1 text-sm text-white/70 backdrop-blur-xl">

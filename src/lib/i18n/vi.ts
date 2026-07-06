@@ -23,4 +23,10 @@ export const vi: Dict = {
     submit: 'Gửi thông tin',
     submitting: 'Đang gửi...',
   },
+  footer: {
+    description: 'Xanh SM - Nền tảng công nghệ gọi xe hàng đầu Việt Nam.',
+    hotline: 'Hotline: 1900 XXXX',
+    email: 'Email: contact@xanhsm.vn',
+    copyright: '© 2026 Xanh SM. Bản quyền thuộc về Xanh SM.',
+  },
 };

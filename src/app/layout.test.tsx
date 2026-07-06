@@ -2,8 +2,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('next/font/google', () => ({
-  Geist: () => ({ variable: 'font-sans' }),
-  Geist_Mono: () => ({ variable: 'font-mono' }),
+  Inter: () => ({ variable: 'font-inter' }),
 }));
 
 const mockCookieGet = vi.fn();

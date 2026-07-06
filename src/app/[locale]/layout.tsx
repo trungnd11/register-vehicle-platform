@@ -1,6 +1,7 @@
 import { LocaleProvider } from '../../lib/i18n/locale-context';
 import { getTranslations } from '../../lib/i18n';
 import { Header } from '../../components/header';
+import { Footer } from '../../components/footer';
 import type { ReactNode } from 'react';
 
 export default async function LocaleLayout({
@@ -17,6 +18,7 @@ export default async function LocaleLayout({
     <LocaleProvider dict={dict} locale={locale}>
       <Header />
       {children}
+      <Footer />
     </LocaleProvider>
   );
 }
