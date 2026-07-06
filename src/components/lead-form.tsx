@@ -8,6 +8,21 @@ import { leadSchema } from '../lib/validations/lead';
 import { Input } from '../shared/ui/input';
 import { Textarea } from '../shared/ui/textarea';
 
+export type LeadFormTranslations = {
+  title: string;
+  description: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  phoneLabel: string;
+  phonePlaceholder: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  noteLabel: string;
+  notePlaceholder: string;
+  submit: string;
+  submitting: string;
+};
+
 type FormValues = {
   name: string;
   phone: string;
@@ -24,7 +39,7 @@ const initialValues: FormValues = {
   note: '',
 };
 
-export function LeadForm() {
+export function LeadForm({ translations }: { translations: LeadFormTranslations }) {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<{ type: 'idle' | 'success' | 'error'; message: string }>({
@@ -79,57 +94,57 @@ export function LeadForm() {
   return (
     <div className="rounded-4xl border border-white/15 bg-white/10 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.45)] backdrop-blur-2xl sm:p-8">
       <div className="mb-6 space-y-2">
-        <h2 className="text-2xl font-semibold text-white">Đăng ký nhận tư vấn</h2>
-        <p className="text-sm leading-6 text-white/70">Vui lòng để lại thông tin, chúng tôi sẽ liên hệ với bạn sớm.</p>
+        <h2 className="text-2xl font-semibold text-white">{translations.title}</h2>
+        <p className="text-sm leading-6 text-white/70">{translations.description}</p>
       </div>
 
       <form className="space-y-4" onSubmit={handleSubmit} noValidate>
         <div className="space-y-2">
-          <label className="text-sm text-white/80" htmlFor="name">Họ và tên</label>
+          <label className="text-sm text-white/80" htmlFor="name">{translations.nameLabel}</label>
           <Input
             id="name"
             name="name"
             value={values.name}
             onChange={(event) => updateField('name', event.target.value)}
-            placeholder="Nguyễn Văn A"
+            placeholder={translations.namePlaceholder}
           />
           {errors.name ? <p className="text-sm text-rose-200">{errors.name}</p> : null}
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm text-white/80" htmlFor="phone">Số điện thoại</label>
+          <label className="text-sm text-white/80" htmlFor="phone">{translations.phoneLabel}</label>
           <Input
             id="phone"
             name="phone"
             value={values.phone}
             onChange={(event) => updateField('phone', event.target.value)}
-            placeholder="0912345678"
+            placeholder={translations.phonePlaceholder}
           />
           {errors.phone ? <p className="text-sm text-rose-200">{errors.phone}</p> : null}
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm text-white/80" htmlFor="email">Email</label>
+          <label className="text-sm text-white/80" htmlFor="email">{translations.emailLabel}</label>
           <Input
             id="email"
             name="email"
             type="email"
             value={values.email}
             onChange={(event) => updateField('email', event.target.value)}
-            placeholder="ban@example.com"
+            placeholder={translations.emailPlaceholder}
           />
           {errors.email ? <p className="text-sm text-rose-200">{errors.email}</p> : null}
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm text-white/80" htmlFor="note">Ghi chú</label>
+          <label className="text-sm text-white/80" htmlFor="note">{translations.noteLabel}</label>
           <Textarea
             id="note"
             name="note"
             rows={5}
             value={values.note}
             onChange={(event) => updateField('note', event.target.value)}
-            placeholder="Nhập ghi chú nếu bạn muốn bổ sung thêm thông tin."
+            placeholder={translations.notePlaceholder}
           />
           {errors.note ? <p className="text-sm text-rose-200">{errors.note}</p> : null}
         </div>
@@ -153,7 +168,7 @@ export function LeadForm() {
           disabled={isSubmitting}
           className="inline-flex w-full items-center justify-center rounded-2xl bg-white px-4 py-3 font-medium text-slate-950 transition hover:bg-cyan-100 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70"
         >
-          {isSubmitting ? 'Đang gửi...' : 'Gửi thông tin'}
+          {isSubmitting ? translations.submitting : translations.submit}
         </button>
       </form>
     </div>

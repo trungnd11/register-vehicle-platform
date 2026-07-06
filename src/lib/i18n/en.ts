@@ -1,4 +1,29 @@
-export const en = {
+export interface Dict {
+  header: {
+    logo: string;
+  };
+  hero: {
+    badge: string;
+    title: string;
+    description: string;
+  };
+  form: {
+    title: string;
+    description: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    noteLabel: string;
+    notePlaceholder: string;
+    submit: string;
+    submitting: string;
+  };
+}
+
+export const en: Dict = {
   header: {
     logo: 'Xanh SM',
   },
@@ -21,6 +46,4 @@ export const en = {
     submit: 'Send information',
     submitting: 'Sending...',
   },
-} as const;
-
-export type Dict = typeof en;
+};
